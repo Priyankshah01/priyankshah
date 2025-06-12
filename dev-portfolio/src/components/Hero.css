@@ -1,0 +1,83 @@
+body{
+  background-color: black;
+}
+.hero {
+  padding: 4rem 2rem;
+  font-family: 'Inter', sans-serif;
+  /* max-width: 1400px; */
+  width: 100%;
+  /* padding: 0 40px; */
+  margin: auto;
+  position: relative;
+  background-color: rgb(255, 255, 255);
+  border-radius: 0 0 20px 20px;
+}
+
+.hero-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+
+}
+
+.hero-left {
+  flex: 1;
+  min-width: 300px;
+}
+
+.symbol {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.hero h1 {
+  font-size: 2rem;
+  font-weight: 400;
+  max-width: 850px;
+  line-height: 1.5;
+}
+
+.hero-right {
+  flex-shrink: 0;
+}
+
+.profile-img {
+  width: 400px;
+  height: 450px;
+  border-radius: 1rem;
+  object-fit: cover;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Hero bottom section only below the text */
+.hero-bottom {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 3rem;
+  font-size: 0.9rem;
+  max-width: 1200px;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.button-resume {
+  font-size: 1rem;
+  padding: 1rem 2rem;
+  border: 1px solid #000000;
+  color: #000000;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-block;
+  background-color: transparent;
+  margin-top: 2rem;
+}
+
+.button-resume:hover {
+  background-color: black;
+  color: #ffffff;
+    border: 1px solid #ffffff;
+
+}
+

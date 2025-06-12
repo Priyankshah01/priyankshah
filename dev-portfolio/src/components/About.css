@@ -1,0 +1,85 @@
+.info-section {
+  background-color: #fdfdfd;
+  color: #121212;
+  font-family: 'Inter', sans-serif;
+  padding: 5rem 2rem;
+  /* max-width: 1200px; */
+  width: 100%;
+  margin: auto;
+  border-top: 1px solid #ddd;
+  border-radius: 20px;
+}
+
+.info-title {
+  font-family: 'Georgia', serif;
+  font-size: 4rem;
+  font-weight: 400;
+  margin-bottom: 3rem;
+}
+
+.info-row {
+  display: flex;
+  border-top: 1px solid #ddd;
+  padding: 2rem 0;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.info-label {
+  flex: 1;
+  font-weight: 500;
+  color: #555;
+  max-width: 180px;
+  min-width: 120px;
+}
+
+.info-text {
+  flex: 3;
+  max-width: 1200px;
+  font-size: 1.1rem;
+  line-height: 1.75;
+
+}
+
+.info-text p {
+  margin-bottom: 1rem;
+}
+
+.info-text ul li {
+    text-decoration: none;
+}
+
+.info-services {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
+  font-size: 1rem;
+  line-height: 2;
+  max-width: 1200px;
+}
+
+.info-services ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* SKILLS SECTION */
+.skill-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    gap: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.skill-tag {
+    display: inline-block;
+    padding: 0.5rem 1.25rem;
+    background-color: white;
+    border: 1px solid rgba(21, 36, 119, 0.2);
+    border-radius: 50px;
+    font-size: 0.9rem;
+    transition: all var(--transition-speed) ease;
+} 

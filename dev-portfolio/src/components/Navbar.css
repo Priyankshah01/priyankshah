@@ -1,0 +1,22 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem;
+  font-family: 'Inter', sans-serif;
+  background-color: white;
+}
+
+.navbar-left {
+  font-weight: bold;
+}
+.navbar-left a{
+  font-family: 'Georgia', serif;
+    text-decoration: none;
+color: black;
+}
+.navbar-right a {
+  margin-left: 2rem;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
