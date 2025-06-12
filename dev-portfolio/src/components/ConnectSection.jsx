@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import ConnectModal from "./ConnectModal";
 import "./ConnectSection.css";
 
-const GetStarted = () => {
+const ConnectSection = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -20,4 +20,4 @@ const GetStarted = () => {
   );
 };
 
-export default GetStarted;
+export default ConnectSection ;
