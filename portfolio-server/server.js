@@ -6,14 +6,25 @@ require("dotenv").config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// Enable CORS
-app.use(cors());
+// ✅ Allow only your frontend domain
+const allowedOrigins = ["https://portfolio-site-973e.onrender.com"];
 
-// Parse incoming JSON
+app.use(cors({
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  methods: ["GET", "POST"],
+  credentials: true,
+}));
+
 app.use(express.json());
 
-// Route setup (no `.default`)
-app.use("/api/contact", require("./routes/contact"));
+// ✅ Use CommonJS require without `.default`
+const contactRoutes = require("./routes/contact");
+app.use("/api/contact", contactRoutes);
 
-// Start the server
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
