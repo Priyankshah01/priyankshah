@@ -1,12 +1,12 @@
 // routes/contact.js
-import { Router } from "express";
-import { createTransport } from "nodemailer";
-const router = Router();
+const express = require("express");
+const nodemailer = require("nodemailer");
+const router = express.Router();
 
 router.post("/", async (req, res) => {
   const { name, email, message } = req.body;
 
-  const transporter = createTransport({
+  const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
       user: process.env.EMAIL_USER,
@@ -18,7 +18,7 @@ router.post("/", async (req, res) => {
     from: email,
     to: process.env.EMAIL_USER,
     subject: `New Message from ${name}`,
-    text: message, email, name,
+    text: `Name: ${name}\nEmail: ${email}\n\n${message}`,
   };
 
   try {
@@ -30,4 +30,4 @@ router.post("/", async (req, res) => {
   }
 });
 
-export default router;
+module.exports = router;
