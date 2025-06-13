@@ -22,3 +22,4 @@ app.use("/api/contact", contactRoute);
 app.options("*", cors());
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+//Just for the client
