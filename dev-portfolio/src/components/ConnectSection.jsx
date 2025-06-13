@@ -11,9 +11,15 @@ const ConnectSection = () => {
       <p className="get-started-subtext">
         Have a project in mind? Let's bring it to life.
       </p>
-      <button className="get-started-button" onClick={() => setIsOpen(true)}>
-        Contact Me
-      </button>
+<button
+  className="get-started-button"
+  onClick={() => {
+    console.log("Button clicked");
+    setIsOpen(true);
+  }}
+>
+  Contact Me
+</button>
 
       <ConnectModal isOpen={isOpen} onClose={() => setIsOpen(false)} />
     </section>
