@@ -6,15 +6,18 @@ require("dotenv").config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
+// ✅ Allow specific frontend origin
 app.use(cors({
-  origin: "*",
+  origin: "https://portfolio-site-973e.onrender.com",
   methods: ["GET", "POST", "OPTIONS"],
   allowedHeaders: ["Content-Type"],
+  credentials: true
 }));
+
+app.options("*", cors()); // Allow preflight across routes
 
 app.use(express.json());
 
-// FIXED: Correct CommonJS import for the route
 const contactRoute = require("./routes/contact");
 app.use("/api/contact", contactRoute);
 
