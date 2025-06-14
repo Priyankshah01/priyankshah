@@ -1,7 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { projectData } from "../data/projectData";
-import "./ProjectDetail.css";
+// import "./ProjectDetail.css";
 import ProjectIntro from "../components/ProjectIntro";
 import Footer from "../components/Footer";
 import ConnectionSection from "../components/ConnectSection";
@@ -27,6 +27,15 @@ function ProjectDetail() {
                     services="UX/UI Design, Frontend Development"
                     date="March 2024"
                     agency="HRX Connect"
+                    toolsUsed={[
+                        "Figma",
+                        "HTML",
+                        "CSS",
+                        "JavaScript",
+                        "User Testing",
+                        "Responsive Design",
+                        "Prototyping"
+                    ]}
                     images={[
                         require("../images/Giftelle-ui1.jpg"),
                         require("../images/Giftelle-ui2.jpg"),
@@ -51,6 +60,15 @@ function ProjectDetail() {
                     services="UX/UI Design, Frontend Development, Database Architecture"
                     date="March 2024"
                     agency="Capstone Project"
+                    toolsUsed={[
+                        "Figma",
+                        "HTML",
+                        "CSS",
+                        "JavaScript",
+                        "User Testing",
+                        "Responsive Design",
+                        "Prototyping"
+                    ]}
                     images={[
                         require("../images/Giftelle-ui1.jpg"),
                         require("../images/Giftelle-ui2.jpg"),
@@ -76,6 +94,15 @@ function ProjectDetail() {
                     services="UX/UI Design, Frontend Development, Database Architecture"
                     date="March 2022"
                     agency="WebClues Infotech LLP"
+                    toolsUsed={[
+                        "Figma",
+                        "HTML",
+                        "CSS",
+                        "JavaScript",
+                        "User Testing",
+                        "Responsive Design",
+                        "Prototyping"
+                    ]}
                     images={[
                         require("../images/Basics-ui1.jpg"),
                         require("../images/Basics-ui2.jpg"),

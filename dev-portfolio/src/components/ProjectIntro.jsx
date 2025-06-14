@@ -1,7 +1,7 @@
 import React from "react";
 import "./ProjectIntro.css";
 
-const ProjectIntro = ({ title, subtitle, overview, services, date, agency, whatwasmyrole, images, image = []
+const ProjectIntro = ({ title, subtitle, overview, services, date, agency, whatwasmyrole, images, image = [], toolsUsed = []
 }) => {
   return (
     <div className="project-intro">
@@ -32,6 +32,27 @@ const ProjectIntro = ({ title, subtitle, overview, services, date, agency, whatw
           </div>
         </div>
       </div>
+
+      <hr className="project-divider" />
+
+       {/* ✅ Tools Used Section */}
+      {toolsUsed.length > 0 && (
+        <div className="project-intro-section">
+        <div className="project-intro-label">↳ Tools Used</div>
+          <div className=" project-intro-text">
+            <section className="section tools">
+              <div className="skill-cloud1">
+                {toolsUsed.map((tool, index) => (
+                  <span className="skill-tag" key={index}>{tool}</span>
+                ))}
+              </div>
+            </section>
+          </div>
+        </div>
+      )}
+
+      <hr className="project-divider" />
+
       {images.length > 0 && (
         <div className="project-intro-images">
           {images.map((img, index) => (

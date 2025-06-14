@@ -7,7 +7,7 @@ const Hero = () => {
     <section className="hero">
       <div className="hero-top">
         <div className="hero-left">
-          <div className="symbol">✴</div>
+          <div className="symbol">🍁</div>
           <h1>
             Toronto based digital designer and developer crafting, <br />
             human-focused digital experiences for a range <br />

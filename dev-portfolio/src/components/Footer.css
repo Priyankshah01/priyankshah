@@ -15,9 +15,8 @@
   align-items: center;
   gap: 1rem;
   width: 100%;
-  /* max-width: 960px; */
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.04);
   flex-wrap: wrap;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.04);
 }
 
 .footer-left {
@@ -27,6 +26,7 @@
   font-size: 1.1rem;
   font-weight: 500;
   color: #111;
+  flex-wrap: wrap;
 }
 
 .footer-left .icon {
@@ -41,6 +41,7 @@
 .footer-right {
   display: flex;
   gap: 0.75rem;
+  flex-wrap: wrap;
 }
 
 .footer-right a {
@@ -58,4 +59,35 @@
 .footer-right a:hover {
   transform: scale(1.1);
   background: #ddd;
+}
+
+/* 🔽 Responsive Styles */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .footer-left {
+    font-size: 1rem;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .footer-right {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-left {
+    font-size: 0.95rem;
+  }
+
+  .footer-right a {
+    font-size: 1rem;
+    padding: 0.4rem 0.6rem;
+  }
 }
