@@ -9,32 +9,29 @@ function ProjectDetail() {
   const [project, setProject] = useState(null);
 
   useEffect(() => {
-    fetch("https://portfolio-admin-api.onrender.com/api/projects")
+    fetch(`https://portfolio-admin-api-kria.onrender.com/admin/api/projects/${slug}`)
       .then(res => res.json())
-      .then(data => {
-        const matched = data.find(p => p.slug === slug);
-        setProject(matched);
-      })
-      .catch(err => console.error("Failed to load project", err));
+      .then(data => setProject(data))
+      .catch(err => console.error("Project not found", err));
   }, [slug]);
 
   if (!project) {
-    return <div style={{ padding: "4rem", textAlign: "center" }}>Project not found.</div>;
+    return <div style={{ padding: "4rem", textAlign: "center" }}>Loading or Project not found.</div>;
   }
 
   return (
     <>
       <ProjectIntro
         title={project.title}
-        subtitle={project.subtitle}
-        overview={project.overview}
-        services={project.services}
-        date={project.date}
-        agency={project.agency}
+        subtitle={project.tag}
+        overview={project.summary}
+        services="UX/UI Design, Frontend Dev"
+        date="2024"
+        agency="HRX Connect"
         toolsUsed={project.tools}
-        images={project.images}
-        whatwasmyrole={project.whatwasmyrole}
-        image={project.image || []}
+        images={project.images || []}
+        whatwasmyrole={project.approach?.join("\n")}
+        image={[project.image1, project.image2]}
       />
       <ConnectionSection />
       <Footer />
