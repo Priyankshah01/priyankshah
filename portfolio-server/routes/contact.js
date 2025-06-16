@@ -33,4 +33,8 @@ router.post("/", async (req, res) => {
   }
 });
 
+router.post("/", (req, res) => {
+  res.status(200).json({ message: "Contact API working" });
+});
+
 module.exports = router;

@@ -22,6 +22,10 @@ app.use(express.json());
 const contactRoute = require("./routes/contact");
 app.use("/api/contact", contactRoute);
 
+app.get("/", (req, res) => {
+  res.send("API is running");
+});
+
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
