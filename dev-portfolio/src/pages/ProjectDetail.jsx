@@ -9,7 +9,7 @@ function ProjectDetail() {
   const [project, setProject] = useState(null);
 
   useEffect(() => {
-    fetch(`https://portfolio-admin-api-kria.onrender.com/admin/api/projects/${slug}`)
+    fetch(`https://portfolio-admin-api-kria.onrender.com/api/projects/${slug}`) // ✅ CORRECT PATH
       .then(res => res.json())
       .then(data => setProject(data))
       .catch(err => console.error("Project not found", err));
@@ -25,9 +25,9 @@ function ProjectDetail() {
         title={project.title}
         subtitle={project.tag}
         overview={project.summary}
-        services="UX/UI Design, Frontend Dev"
-        date="2024"
-        agency="HRX Connect"
+        services={project.services || "UX/UI Design, Frontend Dev"}
+        date={project.date || "2024"}
+        agency={project.agency || "HRX Connect"}
         toolsUsed={project.tools}
         images={project.images || []}
         whatwasmyrole={project.approach?.join("\n")}

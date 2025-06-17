@@ -22,9 +22,8 @@ const ProjectShowcase = () => {
     return () => observer.disconnect();
   }, []);
 
-  // 🔄 Fetch projects from backend
   useEffect(() => {
-    fetch("https://portfolio-admin-api-kria.onrender.com/admin/api/projects")
+    fetch("https://portfolio-admin-api-kria.onrender.com/api/projects") // ✅ CORRECT PATH
       .then(res => res.json())
       .then(data => setProjects(data))
       .catch(err => console.error("Error loading projects:", err));
