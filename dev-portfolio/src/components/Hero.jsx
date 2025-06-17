@@ -1,6 +1,6 @@
 import React from 'react';
 import './Hero.css';
-import profileImage from '../images/Me.jpg'; // Update this path if needed
+import profileImage from '../data/images/Me.jpg'; // Update this path if needed
 
 const Hero = () => {
   return (
