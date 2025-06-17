@@ -1,7 +1,6 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./About.css";
-// import profileImage from "../images/giftelle-ui.jpg"; // Add your profile image
-// import logos from "./logos";
+
 
 function About() {
     const [skills, setSkills] = useState([]);
