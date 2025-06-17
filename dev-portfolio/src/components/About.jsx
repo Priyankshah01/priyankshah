@@ -4,6 +4,16 @@ import "./About.css";
 // import logos from "./logos";
 
 function About() {
+    const [skills, setSkills] = useState([]);
+
+    useEffect(() => {
+        fetch("https://portfolio-admin-api-kria.onrender.com/api/skills")
+            .then(res => res.json())
+            .then(data => setSkills(data))
+            .catch(err => console.error("Error loading skills:", err));
+    }, []);
+
+
     return (
         <section className="info-section">
             <h1 className="info-title">Info</h1>
