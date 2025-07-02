@@ -8,6 +8,7 @@ const ProjectShowcase = () => {
   const [projects, setProjects] = useState([]);
   const navigate = useNavigate();
 
+  // Animate on scroll
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -22,18 +23,20 @@ const ProjectShowcase = () => {
     return () => observer.disconnect();
   }, []);
 
+  // Fetch backend projects only
   useEffect(() => {
-    fetch("https://portfolio-admin-api-kria.onrender.com/api/projects") // ✅ CORRECT PATH
+    fetch("https://portfolio-admin-api-kria.onrender.com/api/projects")
       .then(res => res.json())
       .then(data => setProjects(data))
       .catch(err => console.error("Error loading projects:", err));
   }, []);
 
   return (
-    <section className={`project-grid-section ${isVisible ? 'animate' : ''}`} ref={sectionRef}>
+    <section className={`project-grid-section ${isVisible ? "animate" : ""}`} ref={sectionRef}>
       <div className="project-title">
         <h2>Projects</h2>
       </div>
+
       <div className="project-grid-container">
         {projects.map((project, index) => (
           <div

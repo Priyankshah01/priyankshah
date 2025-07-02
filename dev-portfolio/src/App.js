@@ -13,6 +13,8 @@ import Footer from "./components/Footer";
 
 import ProjectDetail from "./pages/ProjectDetail";
 
+
+
 function AppWrapper() {
 
   return (
@@ -35,7 +37,10 @@ function AppWrapper() {
           }
         />
         <Route path="/projects/:slug" element={<ProjectDetail />} />
+
+
       </Routes>
+
     </>
   );
 }
