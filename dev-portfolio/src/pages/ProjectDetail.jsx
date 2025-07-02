@@ -26,8 +26,8 @@ function ProjectDetail() {
         subtitle={project.tag}
         overview={project.summary}
         services={project.services || "UX/UI Design, Frontend Dev"}
-        date={project.date || "2024"}
-        agency={project.agency || "HRX Connect"}
+        date={project.date}
+        agency={project.agency}
         toolsUsed={project.tools}
         images={project.images || []}
         whatwasmyrole={project.approach?.join("\n")}
