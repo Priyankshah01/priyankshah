@@ -6,7 +6,6 @@ const ProjectIntro = ({
   subtitle,
   overview,
   services = "Not specified",
-  date = "Not specified",
   agency = "Not specified",
   whatwasmyrole = "Not specified",
   images = [],
@@ -33,10 +32,10 @@ const ProjectIntro = ({
             <strong>Services</strong>
             <span>{services}</span>
           </div>
-          <div className="project-detail-item">
+          {/* <div className="project-detail-item">
             <strong>Date</strong>
             <span>{date}</span>
-          </div>
+          </div> */}
           <div className="project-detail-item">
             <strong>Agency</strong>
             <span>{agency}</span>

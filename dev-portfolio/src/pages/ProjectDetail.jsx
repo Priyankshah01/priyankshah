@@ -26,7 +26,7 @@ function ProjectDetail() {
         subtitle={project.tag}
         overview={project.summary}
         services={project.services || "UX/UI Design, Frontend Dev"}
-        date={project.date}
+        // date={project.date}
         agency={project.agency}
         toolsUsed={project.tools}
         images={project.images || []}
