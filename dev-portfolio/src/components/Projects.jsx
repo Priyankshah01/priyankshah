@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import featuredProjects from "../data/featuredProject"; // ✅ hardcoded projects
 import "./Project.css";
 
 const ProjectShowcase = () => {
@@ -8,7 +9,7 @@ const ProjectShowcase = () => {
   const [projects, setProjects] = useState([]);
   const navigate = useNavigate();
 
-  // Animate on scroll
+  // 👁️‍🗨️ Animate on scroll
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -23,16 +24,25 @@ const ProjectShowcase = () => {
     return () => observer.disconnect();
   }, []);
 
-  // Fetch backend projects only
+  // 🌐 Fetch backend projects and combine with featured
   useEffect(() => {
     fetch("https://portfolio-admin-api-kria.onrender.com/api/projects")
-      .then(res => res.json())
-      .then(data => setProjects(data))
-      .catch(err => console.error("Error loading projects:", err));
+      .then((res) => res.json())
+      .then((data) => {
+        const combined = [...featuredProjects, ...data];
+        setProjects(combined);
+      })
+      .catch((err) => {
+        console.error("Error loading backend projects:", err);
+        setProjects(featuredProjects); // fallback to featured only
+      });
   }, []);
 
   return (
-    <section className={`project-grid-section ${isVisible ? "animate" : ""}`} ref={sectionRef}>
+    <section
+      className={`project-grid-section ${isVisible ? "animate" : ""}`}
+      ref={sectionRef}
+    >
       <div className="project-title">
         <h2>Projects</h2>
       </div>
@@ -41,7 +51,7 @@ const ProjectShowcase = () => {
         {projects.map((project, index) => (
           <div
             className="project-card"
-            key={project._id}
+            key={project.slug || project._id || index}
             onClick={() => navigate(`/projects/${project.slug}`)}
           >
             <img
@@ -51,7 +61,11 @@ const ProjectShowcase = () => {
               loading="lazy"
             />
             <div className="project-meta">
-              <span>{new Date(project.createdAt).getFullYear()}</span>
+              <span>
+                {new Date(
+                  project.createdAt || project.date || "2024-01-01"
+                ).getFullYear()}
+              </span>
               <span>{project.status || "Design"}</span>
             </div>
             <hr className="project-divider" />

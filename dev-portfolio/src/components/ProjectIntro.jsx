@@ -9,7 +9,10 @@ const ProjectIntro = ({
   agency = "Not specified",
   whatwasmyrole = "Not specified",
   images = [],
-  toolsUsed = []
+  toolsUsed = [],
+  problem,
+  solution,
+  designProcess
 }) => {
   return (
     <div className="project-intro">
@@ -19,10 +22,45 @@ const ProjectIntro = ({
       {/* Overview Section */}
       <div className="project-intro-section">
         <div className="project-intro-label">↳ Overview</div>
-        <div className="project-intro-text">{overview || "No overview available."}</div>
+        <div className="project-intro-text">
+          {overview || "No overview available."}
+        </div>
       </div>
 
       <hr className="project-divider" />
+
+      {/* Problem */}
+      {problem && (
+        <>
+          <div className="project-intro-section">
+            <div className="project-intro-label">↳ Problem</div>
+            <div className="project-intro-text">{problem}</div>
+          </div>
+          <hr className="project-divider" />
+        </>
+      )}
+
+      {/* Solution */}
+      {solution && (
+        <>
+          <div className="project-intro-section">
+            <div className="project-intro-label">↳ Solution</div>
+            <div className="project-intro-text">{solution}</div>
+          </div>
+          <hr className="project-divider" />
+        </>
+      )}
+
+      {/* Design Process */}
+      {designProcess && (
+        <>
+          <div className="project-intro-section">
+            <div className="project-intro-label">↳ Design Process</div>
+            <div className="project-intro-text">{designProcess}</div>
+          </div>
+          <hr className="project-divider" />
+        </>
+      )}
 
       {/* Details Section */}
       <div className="project-intro-section">
@@ -32,10 +70,6 @@ const ProjectIntro = ({
             <strong>Services</strong>
             <span>{services}</span>
           </div>
-          {/* <div className="project-detail-item">
-            <strong>Date</strong>
-            <span>{date}</span>
-          </div> */}
           <div className="project-detail-item">
             <strong>Agency</strong>
             <span>{agency}</span>
@@ -53,7 +87,9 @@ const ProjectIntro = ({
               <section className="section tools">
                 <div className="skill-cloud1">
                   {toolsUsed.map((tool, index) => (
-                    <span className="skill-tag" key={index}>{tool}</span>
+                    <span className="skill-tag" key={index}>
+                      {tool}
+                    </span>
                   ))}
                 </div>
               </section>
@@ -62,19 +98,23 @@ const ProjectIntro = ({
         </>
       )}
 
-      {/* Image Showcase */}
+      {/* Images */}
       {images.length > 0 && (
         <>
           <hr className="project-divider" />
           <div className="project-intro-images">
             {images.map((img, index) => (
-              <img key={index} src={img} alt={`Project visual ${index + 1}`} />
+              <img
+                key={index}
+                src={img}
+                alt={`Project visual ${index + 1}`}
+              />
             ))}
           </div>
         </>
       )}
 
-      {/* Role Section */}
+      {/* What was my role */}
       <hr className="project-divider" />
       <div className="project-intro-section">
         <div className="project-intro-label">↳ What was my role</div>

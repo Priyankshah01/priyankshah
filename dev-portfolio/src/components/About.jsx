@@ -72,7 +72,7 @@ function About() {
                 <div className="info-text info-services">
                     <section id="skills" className="section skills">
                         <div className="skill-cloud">
-                            <span className="skill-tag">Test</span>
+                            <span className="skill-tag">UI/UX Design</span>
                             {skills.map((skill) => (
                                 <span className="skill-tag" key={skill._id}>{skill.name}</span>
                             ))}
