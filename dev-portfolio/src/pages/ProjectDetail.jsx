@@ -3,13 +3,16 @@ import { useParams } from "react-router-dom";
 import ProjectIntro from "../components/ProjectIntro";
 import Footer from "../components/Footer";
 import ConnectionSection from "../components/ConnectSection";
-import featuredProjects from "../data/featuredProject"; // ✅ Local fallback
+import featuredProjects from "../data/featuredProject"; // Local fallback
 
 function ProjectDetail() {
   const { slug } = useParams();
   const [project, setProject] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    setLoading(true);
+
     fetch(`https://portfolio-admin-api-kria.onrender.com/api/projects/${slug}`)
       .then(res => {
         if (!res.ok) throw new Error("Not found");
@@ -18,18 +21,23 @@ function ProjectDetail() {
       .then(data => setProject(data))
       .catch(() => {
         const localProject = featuredProjects.find(p => p.slug === slug);
-        if (localProject) {
-          setProject(localProject);
-        } else {
-          setProject(null);
-        }
-      });
+        setProject(localProject || null);
+      })
+      .finally(() => setLoading(false));
   }, [slug]);
+
+  if (loading) {
+    return (
+      <div style={{ padding: "4rem", textAlign: "center" }}>
+        Loading...
+      </div>
+    );
+  }
 
   if (!project) {
     return (
       <div style={{ padding: "4rem", textAlign: "center" }}>
-        Loading or Project not found.
+        Project not found.
       </div>
     );
   }

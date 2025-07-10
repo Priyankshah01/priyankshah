@@ -6,7 +6,7 @@ import "./Project.css";
 const ProjectShowcase = () => {
   const sectionRef = useRef();
   const [isVisible, setIsVisible] = useState(false);
-  const [projects, setProjects] = useState([]);
+  const [projects, setProjects] = useState(featuredProjects); // ✅ show featured immediately
   const navigate = useNavigate();
 
   // 👁️‍🗨️ Animate on scroll
@@ -34,7 +34,7 @@ const ProjectShowcase = () => {
       })
       .catch((err) => {
         console.error("Error loading backend projects:", err);
-        setProjects(featuredProjects); // fallback to featured only
+        // Do nothing – already showing featured projects
       });
   }, []);
 
